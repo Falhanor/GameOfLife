@@ -1,36 +1,11 @@
 package cellularAutomata;
 
-public class Cell implements ICell {
-
-	private boolean isAlive = false;
+public interface ICell {
+	boolean isAlive();
+	void setIsAlive(boolean isAlive);
 	
-	public Cell(boolean isAlive) {
-		this.isAlive=isAlive;
-	}
-
-	@Override
-	public boolean isAlive() {
-		return this.isAlive;
-	}
+	void resurrectCell();
+	void killCell();
 	
-	@Override
-	public void setIsAlive(boolean isAlive){
-		this.isAlive=isAlive;
-	}
-
-	@Override
-	public void killCell() {
-		this.isAlive=false;
-	}
-
-	@Override
-	public void resurrectCell() {
-		this.isAlive=true;
-	}
-	
-	@Override
-	public String toString(){
-		return (this.isAlive)? "O":" ";
-	}
-
+	String toString();
 }
