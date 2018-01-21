@@ -1,2 +1,4 @@
 # GameOfLife
-Cellular Automata
+
+- Cellular Automata
+- Conway's Game Of Life
