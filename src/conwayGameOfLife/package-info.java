@@ -5,4 +5,4 @@
  * @author Timothée SOLLAUD
  *
  */
-package conway;
+package conwayGameOfLife;

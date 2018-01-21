@@ -1,4 +1,4 @@
-package conway;
+package conwayGameOfLife;
 
 import cellularAutomata.CellsManager;
 import cellularAutomata.CellsManagerImpl;
