@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author timot
+ * @author Timothée SOLAUD
  *
  */
 package cellularAutomata;

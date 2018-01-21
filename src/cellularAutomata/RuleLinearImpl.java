@@ -1,12 +1,12 @@
 package cellularAutomata;
 
-public class Rule implements IRule {
+public class RuleLinearImpl implements Rule {
 	private short number = 0;
 	private boolean[] result = new boolean[8];
 	/*
 		000 001 010 011 100 101 110 111	
 	*/
-	public Rule(short number) {
+	public RuleLinearImpl(short number) {
 		this.number = number;
 		
 		for (byte cas=0; cas<8; cas++)
@@ -56,5 +56,12 @@ public class Rule implements IRule {
 		
 		throw new Exception();
 		
+	}
+
+	@Override
+	public boolean apply(boolean stateCellAL, boolean stateCellA, boolean stateCellAR, boolean stateCellL,
+			boolean stateCellR, boolean stateCellBL, boolean stateCellB, boolean stateCellBR) throws Exception {
+		//using only top cells states
+		return apply(stateCellAL, stateCellA, stateCellAR);
 	}
 }

@@ -1,7 +1,7 @@
 package cellularAutomata;
 
-public interface IRulesManager {
-	public IRule getRule(short number);
+public interface RulesManager {
+	public Rule getRule(short number);
 	
 	public String toString();
 	

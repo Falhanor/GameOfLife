@@ -2,21 +2,22 @@ package cellularAutomata;
 
 import java.util.Scanner;
 
-public class IS_GameOfLife {
+public class IS_LinearAutomata {
 	
 	private static final short LINE = 50;
 	private static final short COLUMN = 100;
 	private static final short START_ALIVE = 50;
-			
+	private static final char CELLALIVESYMBOL = '0';
+	
 	protected static RulesManager rulesGenerator;
 	protected static CellsManager cells;
-	protected static IRule rule;
+	protected static Rule rule;
 	
-	public IS_GameOfLife() {}
+	public IS_LinearAutomata() {}
 	
 	
 	public static void main(String[] args){;
-		rulesGenerator= new RulesManager();
+		rulesGenerator= new RulesLinearManagerImpl();
 		//System.out.println(rulesGenerator.toString());
 		
 		Scanner sc = new Scanner(System.in);
@@ -30,26 +31,31 @@ public class IS_GameOfLife {
 			//===================================	
 		}else{
 			//======= ManualPlay ===============
-			rule = selectRule(sc);
-			play();
+			do{
+				rule = selectRule(sc);
+				play();
+			}while (true);
 			//===================================
 		}
 		
 		sc.close();
 	}
 	
+	
 	private static void play(){
-		System.out.println("============================================ Rule N°" + rule.ruleNumber() + " ============================================");
-		cells = new CellsManager(LINE, COLUMN);
-		cells.getCell(0,START_ALIVE).resurrectCell();
+		System.out.println("============================================ Rule N°" + String.format("%03d", rule.ruleNumber()) + " ============================================");
+		cells = new CellsManagerImpl(LINE, COLUMN, CELLALIVESYMBOL);
+		cells.getCell(0,START_ALIVE).resurrect();
 		//System.out.println(cells.toString());
 		
-		cells.compute(rule);
+		cells.computeLine(rule);
 		System.out.println(cells.toString());
+		System.out.println("====================================================================================================");
 	}
 
-	private static IRule selectRule(Scanner sc){
-		IRule selectedRule = null;
+	
+	private static Rule selectRule(Scanner sc){
+		Rule selectedRule = null;
 		
 		boolean error = false;
 		do {
@@ -70,6 +76,7 @@ public class IS_GameOfLife {
 	
 		return selectedRule;
 	}
+	
 	
 	private static boolean selectAutoSimulation(Scanner sc){
 		boolean isAutoSimulation = false;

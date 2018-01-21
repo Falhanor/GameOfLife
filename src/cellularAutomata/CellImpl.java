@@ -1,11 +1,13 @@
 package cellularAutomata;
 
-public class Cell implements ICell {
+public class CellImpl implements Cell {
 
 	private boolean isAlive = false;
+	private char isAliveSymbol = '\u2589';
 	
-	public Cell(boolean isAlive) {
-		this.isAlive=isAlive;
+	public CellImpl(boolean isAlive, char isAliveSymbol) {
+		this.isAlive = isAlive;
+		this.isAliveSymbol = isAliveSymbol;
 	}
 
 	@Override
@@ -15,22 +17,28 @@ public class Cell implements ICell {
 	
 	@Override
 	public void setIsAlive(boolean isAlive){
-		this.isAlive=isAlive;
-	}
-
-	@Override
-	public void killCell() {
-		this.isAlive=false;
-	}
-
-	@Override
-	public void resurrectCell() {
-		this.isAlive=true;
+		this.isAlive = isAlive;
 	}
 	
 	@Override
+	public void invertState() {
+		this.isAlive = !this.isAlive;
+	}
+	
+	@Override
+	public void kill() {
+		this.isAlive = false;
+	}
+
+	@Override
+	public void resurrect() {
+		this.isAlive = true;
+	}
+	
+	
+	@Override
 	public String toString(){
-		return (this.isAlive)? "O":" ";
+		return ((this.isAlive)? String.valueOf(this.isAliveSymbol) :" ");
 	}
 
 }

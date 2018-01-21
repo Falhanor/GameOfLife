@@ -1,11 +1,12 @@
 package cellularAutomata;
 
-public interface ICell {
+public interface Cell {
 	boolean isAlive();
 	void setIsAlive(boolean isAlive);
 	
-	void resurrectCell();
-	void killCell();
+	void invertState();
+	void resurrect();
+	void kill();
 	
 	String toString();
 }

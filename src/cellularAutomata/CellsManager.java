@@ -1,9 +1,11 @@
 package cellularAutomata;
 
-public interface ICellsManager {
+public interface CellsManager {
 	
-	public ICell getCell(int l,int c);
-	public void compute(IRule rule);
+	public Cell getCell(int l,int c);
+	public void computeLine (Rule rule);
+	void computeBlock(Rule rule);
 	
 	public String toString();
+	
 }
