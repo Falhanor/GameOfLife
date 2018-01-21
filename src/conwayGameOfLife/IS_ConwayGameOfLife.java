@@ -22,7 +22,7 @@ public class IS_ConwayGameOfLife {
 			cells.getCell(l,COLUMN-1).resurrect();
 		for(int c=0; c<COLUMN;c++)
 			cells.getCell(LINE-1,c).resurrect();
-		
+				
 		int iterationCount = 0;
 		System.out.println("Iteration n°" + iterationCount + " =====================================================================");
 		System.out.println(cells.toString());
