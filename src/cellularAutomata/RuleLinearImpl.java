@@ -58,10 +58,4 @@ public class RuleLinearImpl implements Rule {
 		
 	}
 
-	@Override
-	public boolean apply(boolean stateCellAL, boolean stateCellA, boolean stateCellAR, boolean stateCellL,
-			boolean stateCellR, boolean stateCellBL, boolean stateCellB, boolean stateCellBR) throws Exception {
-		//using only top cells states
-		return apply(stateCellAL, stateCellA, stateCellAR);
-	}
 }

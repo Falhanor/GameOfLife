@@ -40,26 +40,6 @@ public class CellsManagerImpl implements CellsManager {
 				}
 			}
 	}
-	
-	@Override
-	public void computeBlock(Rule rule) {
-		for(int l=0; l<line; l++)
-			for(int c=0; c<column;c++){
-				Cell origineAL = cells[(l-1 + line) % line][(c-1 + column) % column];
-				Cell origineA = cells[(l-1 + line) % line][c];
-				Cell origineAR = cells[(l-1 + line) % line][(c+1 + column) % column];
-				Cell origineL = cells[l][(c-1 + column) % column];
-				Cell origineR = cells[l][(c+1 + column) % column];
-				Cell origineBL = cells[(l+1 + line) % line][(c-1 + column) % column];
-				Cell origineB = cells[(l+1 + line) % line][c];
-				Cell origineBR = cells[(l+1 + line) % line][(c+1 + column) % column];
-				try {
-					cells[l][c].setIsAlive(rule.apply(origineAL.isAlive(), origineA.isAlive(), origineAR.isAlive(), origineL.isAlive(),origineR.isAlive(), origineBL.isAlive(), origineB.isAlive(), origineBR.isAlive()));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-	}
 
 	public String toString(){
 		StringBuffer stb =new StringBuffer();
