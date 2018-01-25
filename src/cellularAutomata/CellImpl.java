@@ -35,7 +35,6 @@ public class CellImpl implements Cell {
 		this.isAlive = true;
 	}
 	
-	
 	@Override
 	public String toString(){
 		return ((this.isAlive)? String.valueOf(this.isAliveSymbol) :" ");
