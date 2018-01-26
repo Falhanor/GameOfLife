@@ -2,8 +2,8 @@ package cellularAutomata;
 
 public class CellImpl implements Cell {
 
-	private boolean isAlive = false;
-	private char isAliveSymbol = '\u2589';
+	protected boolean isAlive = false;
+	protected char isAliveSymbol = '\u2589';
 	
 	public CellImpl(boolean isAlive, char isAliveSymbol) {
 		this.isAlive = isAlive;

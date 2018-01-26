@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * @author timot
+ *
+ */
+package langtonAnt;
