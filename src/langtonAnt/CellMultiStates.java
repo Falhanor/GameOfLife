@@ -1,6 +1,7 @@
 package langtonAnt;
 
 public interface CellMultiStates {
+	int getState();
 	void nextState();
 	void kill();
 	

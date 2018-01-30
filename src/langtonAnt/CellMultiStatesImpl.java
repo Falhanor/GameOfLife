@@ -12,6 +12,11 @@ public class CellMultiStatesImpl implements CellMultiStates {
 	}
 
 	@Override
+	public int getState() {
+		return this.state;
+	}
+	
+	@Override
 	public void nextState() {
 		this.state = (byte) ((this.state + stateQty + 1) % stateQty); 
 	}
@@ -35,10 +40,10 @@ public class CellMultiStatesImpl implements CellMultiStates {
 
 	@Override
 	public String toString(){
-		return "StateQty : " + stateQty + "\nState : " + states[state];
+		return String.valueOf(states[state]);
 	}
 	
-	public static void main(String args[]){
+	/*public static void main(String args[]){
 		//exemple
 		char statesSet[] = {'0','1','2','3','4'};
 		CellMultiStates cell = new CellMultiStatesImpl(statesSet);
@@ -56,6 +61,7 @@ public class CellMultiStatesImpl implements CellMultiStates {
 			cell.nextState();
 			System.out.println(cell.toString());
 		}
-	}
+	}*/
+
 	
 }
