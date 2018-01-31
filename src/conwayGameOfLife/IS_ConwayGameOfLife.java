@@ -15,7 +15,8 @@ public class IS_ConwayGameOfLife {
 	protected static CellsManager cells;
 	
 	
-	public static void main(String[] args){;
+	public static void main(String[] args){
+		printUsage();
 		cells = new CellsManagerImpl(LINE, COLUMN, CELLALIVESYMBOL);
 		
 		for(int l=0; l<LINE; l++)
@@ -76,5 +77,12 @@ public class IS_ConwayGameOfLife {
 		}
 		cells = computedCells;
 		return stateChanged;
+	}
+	private static void printUsage() {
+		System.out.println("\n              =====================================================");
+		System.out.println("              |=============| Conway's game of life |=============|");
+		System.out.println("              |===================================================|");
+		System.out.println("              |===========================| By : Timothée SOLLAUD |");
+		System.out.println("              =====================================================\n");
 	}
 }

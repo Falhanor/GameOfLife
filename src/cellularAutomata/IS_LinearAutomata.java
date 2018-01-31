@@ -16,7 +16,8 @@ public class IS_LinearAutomata {
 	public IS_LinearAutomata() {}
 	
 	
-	public static void main(String[] args){;
+	public static void main(String[] args){
+		printUsage();
 		rulesGenerator= new RulesLinearManagerImpl();
 		//System.out.println(rulesGenerator.toString());
 		
@@ -34,6 +35,7 @@ public class IS_LinearAutomata {
 			do{
 				rule = selectRule(sc);
 				play();
+				printUsage();
 			}while (true);
 			//===================================
 		}
@@ -99,5 +101,20 @@ public class IS_LinearAutomata {
 		}while (error);
 		
 		return isAutoSimulation;
+	}
+	
+	private static void printUsage() {
+		System.out.println("\n              =====================================================");
+		System.out.println("              |================| Linear automata |================|");
+		System.out.println("              |===================================================|");
+		System.out.println("              |                                                   |");
+		System.out.println("              | Some remarkable rules :                           |");
+		System.out.println("              |     30 -> chaos        126 -> Sierpinksi          |");
+		System.out.println("              |     57 -> Pyramid      129 -> Sierpinksi negative |");
+		System.out.println("              |    110 -> emergence    225 -> Nested pattern      |");
+		System.out.println("              |                                                   |");
+		System.out.println("              |===================================================|");
+		System.out.println("              |===========================| By : Timothée SOLLAUD |");
+		System.out.println("              =====================================================\n");
 	}
 }
