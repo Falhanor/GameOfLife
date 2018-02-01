@@ -47,7 +47,6 @@ public class LangtonCellsManagerImpl implements LangtonCellsManager {
 	}
 
 	public void moveAnt() throws Exception{
-		int[] antXY = this.ant.getPosition();
 		CellMultiStates antCell = getAntCell();
 		char movement = this.rule.charAt(antCell.getState());
 		switch (movement){

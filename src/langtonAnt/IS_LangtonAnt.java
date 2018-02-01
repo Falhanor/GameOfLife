@@ -8,7 +8,7 @@ public class IS_LangtonAnt {
 	private static final short ANTX = 50;
 	private static final char ANTCHAR = '#';
 	
-	private static final int DISPLAY_DELAY = 10; 	
+	private static final int DISPLAY_DELAY = 5; 	
 	
 	private static int iteration = 11000; 	
 	private static String rule = "LR";
