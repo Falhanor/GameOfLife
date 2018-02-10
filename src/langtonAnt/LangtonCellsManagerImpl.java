@@ -32,7 +32,7 @@ public class LangtonCellsManagerImpl implements LangtonCellsManager {
 	private void initCells(char[] cellStatesSet){
 		for(int l=0; l<line; l++)
 			for(int c=0; c<column;c++)
-				this.cells[l][c]=new CellMultiStatesImpl(cellStatesSet);
+				this.cells[l][c]=new CellMultiStatesWithEventsImpl(cellStatesSet);
 	}
 	
 	@Override
@@ -48,6 +48,7 @@ public class LangtonCellsManagerImpl implements LangtonCellsManager {
 
 	public void moveAnt() throws Exception{
 		CellMultiStates antCell = getAntCell();
+		antCell.setIsAnt(false);
 		char movement = this.rule.charAt(antCell.getState());
 		switch (movement){
 			case 'L':
@@ -60,6 +61,7 @@ public class LangtonCellsManagerImpl implements LangtonCellsManager {
 				throw new Exception("incorrect movement character : " + movement);
 		}
 		antCell.nextState();
+		getAntCell().setIsAnt(true);
 	}
 	
 	public String toString(){
