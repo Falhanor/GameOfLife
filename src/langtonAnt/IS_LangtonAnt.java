@@ -113,6 +113,7 @@ public class IS_LangtonAnt {
 		System.out.println("              |      - LLLRRR / RRRRL      : stripes                |");
 		System.out.println("              |      - LLLLRRRR            : brain                  |");
 		System.out.println("              |      - RLLLLRRRLLL         : spiral                 |");
+		System.out.println("              |      - RRLLLRLLLRRR        : projector              |");
 		System.out.println("              |      - LLRRRLRRRRRRRR      : emergence              |");
 		System.out.println("              |      - LRLRLLLLLLLLLR      : psychedelic            |");
 		System.out.println("              |      - LLRRRLRRRRRRRRLR    : emergence 2            |");
