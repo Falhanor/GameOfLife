@@ -11,13 +11,13 @@ import java.awt.Color;
 
 
 public class IS_LangtonAnt {
-	private static final short LINE = 200;//100;
-	private static final short COLUMN = 350;//175;
-	private static final short ANTY = 100;//50;
-	private static final short ANTX = 175;//85;
+	private static final short LINE = 150;//100;
+	private static final short COLUMN = 300;//175;
+	private static final short ANTY = 75;//50;
+	private static final short ANTX = 150;//85;
 	private static final char ANTCHAR = '#';
 	private static final int RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
-	private static final int DISPLAY_DELAY = 1;
+	private static final int DISPLAY_DELAY = 0;
 	
 	private static boolean verboseMode = false;
 	private static int iteration = 0; 	
@@ -35,14 +35,14 @@ public class IS_LangtonAnt {
 		/// JFrame design
 		final JFrame fenetre = new JFrame();
 		fenetre.setTitle("LangtonAnt");
-	    fenetre.setSize(1366, 768);
+	    fenetre.setSize(800, 600);
 	    fenetre.setLocationRelativeTo(null);
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    final JPanel pan = new JPanel();
 	    fenetre.setContentPane(pan);
 		pan.setLayout(new GridLayout(LINE,COLUMN));
-		pan.setBackground(new Color(RANDOMCOLOR));
+		pan.setBackground(new Color(RANDOMCOLOR).brighter());
 
 		fenetre.setVisible(true);
 	    ///////////////////////////////
