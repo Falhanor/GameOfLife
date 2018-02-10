@@ -7,4 +7,11 @@ public interface LangtonAnt {
 	void goLeft();
 	
 	String getAntDisplay();
+	
+	public enum enumOrientation {
+		  NORTH,
+		  SOUTH,
+		  EAST,
+		  WEST;	
+	}
 }

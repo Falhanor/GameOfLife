@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="langtonAnt.LangtonCellsManagerImpl" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/LangtonCellsManagerImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="781" y="248"/>    
+    <position height="-1" width="-1" x="779" y="271"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <interface id="2" language="java" name="langtonAnt.LangtonAnt" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/LangtonAnt.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1028" y="547"/>    
+    <position height="-1" width="-1" x="1149" y="543"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="langtonAnt.CtrlCellMultiStateLabelDesign" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/CtrlCellMultiStateLabelDesign.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="245" y="927"/>    
+    <position height="-1" width="-1" x="245" y="940"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -46,16 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <enumeration id="6" language="java" name="langtonAnt.LangtonAntImpl.enumOrientation" project="GameOfLife" 
-    file="/GameOfLife/src/langtonAnt/LangtonAntImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1276" y="248"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <interface id="7" language="java" name="langtonAnt.CellMultiStates" project="GameOfLife" 
+  <interface id="6" language="java" name="langtonAnt.CellMultiStates" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/CellMultiStates.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="543" y="554"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="8" language="java" name="langtonAnt.CellMultiStatesWithEvents" project="GameOfLife" 
+  <interface id="7" language="java" name="langtonAnt.CellMultiStatesWithEvents" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/CellMultiStatesWithEvents.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="245" y="553"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="9" language="java" name="langtonAnt.CellMultiStatesWithEvents.CellEventListener" project="GameOfLife" 
+  <interface id="8" language="java" name="langtonAnt.CellMultiStatesWithEvents.CellEventListener" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/CellMultiStatesWithEvents.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-44" y="549"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="10" language="java" name="langtonAnt.CtrlCellMultiStatesLabel" project="GameOfLife" 
+  <class id="9" language="java" name="langtonAnt.CtrlCellMultiStatesLabel" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/CtrlCellMultiStatesLabel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="245" y="760"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="langtonAnt.IS_LangtonAnt" project="GameOfLife" 
+  <class id="10" language="java" name="langtonAnt.IS_LangtonAnt" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/IS_LangtonAnt.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="779" y="839"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,91 +91,99 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="langtonAnt.LangtonAntImpl" project="GameOfLife" 
+  <class id="11" language="java" name="langtonAnt.LangtonAntImpl" project="GameOfLife" 
     file="/GameOfLife/src/langtonAnt/LangtonAntImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1027" y="248"/>    
+    <position height="-1" width="-1" x="1149" y="248"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="13">    
+  <realization id="12">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <realization id="13">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="14">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="14" name="ant"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="15" name="ant">        
+        <position height="0" width="0" x="121" y="-4"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="1">        
+        <position height="0" width="0" x="121" y="-4"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="16">    
+  <realization id="17">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <association id="17">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="18" name="cells"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="21">    
+  </realization>  
+  <association id="18">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="22" name="cells"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="24">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <realization id="25">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="26">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="27" name="orientation"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
+      <attribute id="19" name="cells">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="30" name="cell"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="32">    
+  <realization id="21">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
-  <association id="33">    
+  <association id="22">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="34" name="ctrlCellMultiStateLabelDesign"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+      <attribute id="23" name="cells">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="26" name="cell">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="29" name="ctrlCellMultiStateLabelDesign">        
+        <position height="0" width="0" x="0" y="13"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="13"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="36">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="9"/>  
+  <nesting id="31">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
   </nesting>  
-  <nesting id="37">    
-    <end type="SOURCE" refId="12"/>    
+  <generalization id="32">    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="6"/>  
-  </nesting>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

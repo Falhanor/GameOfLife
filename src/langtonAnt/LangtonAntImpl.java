@@ -2,25 +2,20 @@ package langtonAnt;
 
 public class LangtonAntImpl implements LangtonAnt {
 	
-	private enum enumOrientation {
-		  NORTH,
-		  SOUTH,
-		  EAST,
-		  WEST;	
-	}
 	private int antColumnX;
 	private int antLineY;
 	private int maxX;
 	private int maxY;
 	private char antChar='#';
-	private enumOrientation orientation = enumOrientation.NORTH;	
+	private enumOrientation orientation = enumOrientation.EAST;	
 	
-	public LangtonAntImpl(int antColumnX, int antLineY, char antDisplay,int maxX,int maxY) {
+	public LangtonAntImpl(int antColumnX, int antLineY, char antDisplay,int maxX,int maxY, enumOrientation startOrientation) {
 		this.antColumnX = antColumnX;
 		this.antLineY = antLineY;
 		this.antChar = antDisplay;
 		this.maxX = maxX;
 		this.maxY = maxY;
+		this.orientation = startOrientation;
 	}
 
 	@Override

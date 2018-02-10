@@ -1,5 +1,7 @@
 package langtonAnt;
 
+import langtonAnt.LangtonAnt.enumOrientation;
+
 public class LangtonCellsManagerImpl implements LangtonCellsManager {
 	
 	private CellMultiStates cells[][];
@@ -11,11 +13,11 @@ public class LangtonCellsManagerImpl implements LangtonCellsManager {
 	private String rule = "LR";
 	
 	
-	public LangtonCellsManagerImpl(int l, int c, char antSymbol,int antLine, int antColumn, String rule) {
+	public LangtonCellsManagerImpl(int l, int c, char antSymbol,int antLine, int antColumn, enumOrientation antOrientation, String rule) {
 		this.line = l;
 		this.column =c;
 		this.cells = new CellMultiStates[line][column];
-		this.ant = new LangtonAntImpl(antColumn, antLine, antSymbol, c-1, l-1);
+		this.ant = new LangtonAntImpl(antColumn, antLine, antSymbol, c-1, l-1, antOrientation);
 		this.rule = rule;
 		initCells(generateCellStatesSet());
 	}
