@@ -38,7 +38,7 @@ public class CtrlCellMultiStatesLabel implements CellEventListener {
 		}else{
 			//this.ctrlCellMultiStateLabelDesign.setText(""+cell.getState());
 			if(cell.getState()==0)
-				this.ctrlCellMultiStateLabelDesign.setBackground(Color.white);
+				this.ctrlCellMultiStateLabelDesign.setBackground(Color.black);
 			else
 				this.ctrlCellMultiStateLabelDesign.setBackground(new Color(cell.getState()*colorSeed));
 		}

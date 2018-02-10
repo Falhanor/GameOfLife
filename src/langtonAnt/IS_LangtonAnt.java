@@ -15,7 +15,8 @@ public class IS_LangtonAnt {
 	private static final char ANTCHAR = '#';
 	private static final int RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
 	
-	private static final int DISPLAY_DELAY = 0; 	
+	private static final int DISPLAY_DELAY = 1;
+	private static boolean verboseMode = false;
 	
 	private static int iteration = 0; 	
 	private static String rule = "LR";
@@ -54,14 +55,15 @@ public class IS_LangtonAnt {
 		cells.getAntCell().setIsAnt(true);
 	    
 		//run parameters
-		System.out.println("Run parameters : " + iteration + " iterations with rule \"" + rule + "\" & color seed = " + RANDOMCOLOR);
-		
 		int iterationCount = 0;
-		System.out.println("\nIteration n°" + iterationCount + " =====================================================================");
-		System.out.println(cells.toString());
+		if(verboseMode){
+			System.out.println("Run parameters : " + iteration + " iterations with rule \"" + rule + "\" & color seed = " + RANDOMCOLOR);
+			System.out.println("\nIteration n°" + iterationCount + " =====================================================================");
+			System.out.println(cells.toString());
+		}
 		
-		while (iteration==0 || iterationCount <= iteration){
-			++iterationCount;
+		
+		while (iteration==0 || iterationCount < iteration){
 			try {
 				Thread.sleep(DISPLAY_DELAY);
 			} catch (InterruptedException e) {
@@ -74,8 +76,11 @@ public class IS_LangtonAnt {
 				e.printStackTrace();
 			}
 			fenetre.setTitle("LangtonAnt - " + iterationCount + " iterations with rule \"" + rule + "\" & color seed = " + RANDOMCOLOR);
-			System.out.println("Iteration n°" + iterationCount+ " =====================================================================");
-			System.out.println(cells.toString());
+			if(verboseMode){
+				System.out.println("Iteration n°" + iterationCount+ " =====================================================================");
+				System.out.println(cells.toString());
+			}
+			++iterationCount;
 		}
 	}
 
@@ -97,22 +102,17 @@ public class IS_LangtonAnt {
 		String regexArgRule = "^[L|R]*$";
 		String regexArgIteration = "^\\d+$";
 		if (args.length>0){
-			if (args[0].matches(regexArgRule)){
-				rule = args[0];
+			for(int i=0; i<args.length; ++i)
+			if (args[i].matches(regexArgRule)){
+				rule = args[i];
 				argsFound = true;
-			}else if (args[0].matches(regexArgIteration)){
-				iteration = Integer.parseInt(args[0]);
+			}else if (args[i].matches(regexArgIteration)){
+				iteration = Integer.parseInt(args[i]);
 				argsFound = true;
-			}
-		}
-		if(args.length>1){
-			if (args[1].matches(regexArgRule)){
-				rule = args[1];
-				argsFound = true;
-			}else if (args[1].matches(regexArgIteration)){
-				iteration = Integer.parseInt(args[1]);
-				argsFound = true;
-			}
+				}else if (args[i].compareToIgnoreCase("-v")==0){
+					verboseMode = true;
+					argsFound = true;
+				}
 		}
 		return argsFound;
 	}
