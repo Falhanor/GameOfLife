@@ -7,7 +7,6 @@ public interface CellWithEvents extends Cell {
 	
 	public interface CellEventListener extends EventListener {
 		void cellStateChanged(Cell c);
-		void isAntChanged(Cell c);
 	}
 	
 	public void addCellListener(CellEventListener listener);
