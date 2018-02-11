@@ -1,5 +1,6 @@
 package cellularAutomata;
 
+
 public class CellImpl implements Cell {
 
 	protected boolean isAlive = false;

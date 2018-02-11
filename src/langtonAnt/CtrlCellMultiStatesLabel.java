@@ -2,10 +2,9 @@ package langtonAnt;
 
 import java.awt.Color;
 
-import langtonAnt.CellMultiStatesWithEvents;
-import langtonAnt.CellMultiStatesWithEvents.CellEventListener;
+import langtonAnt.CellMultiStatesWithEvents.CellMultiStatesEventListener;
 
-public class CtrlCellMultiStatesLabel implements CellEventListener {
+public class CtrlCellMultiStatesLabel implements CellMultiStatesEventListener {
 	
 	private CellMultiStatesWithEvents cell;
 	private CtrlCellMultiStateLabelDesign ctrlCellMultiStateLabelDesign;
@@ -14,7 +13,7 @@ public class CtrlCellMultiStatesLabel implements CellEventListener {
 	public CtrlCellMultiStatesLabel(CellMultiStatesWithEvents cellMultiStates, int colorSeed) {
 		this.cell =  cellMultiStates;
 		this.colorSeed = colorSeed;
-		this.cell.addCellMultiStatesListener(this);
+		this.cell.addCellListener(this);
 		ctrlCellMultiStateLabelDesign = new CtrlCellMultiStateLabelDesign();
 			
 		initialize();	
