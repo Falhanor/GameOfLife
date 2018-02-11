@@ -17,7 +17,7 @@ public class IS_LangtonAnt {
 	private static final short ANTX = 150;//85;
 	private static final char ANTCHAR = '#';
 	private static final int RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
-	private static final int DISPLAY_DELAY = 0;
+	private static final int DISPLAY_DELAY = 1;
 	
 	private static boolean verboseMode = false;
 	private static int iteration = 0; 	
@@ -34,17 +34,18 @@ public class IS_LangtonAnt {
 		//////////////////////////////
 		/// JFrame design
 		final JFrame fenetre = new JFrame();
-		fenetre.setTitle("LangtonAnt");
-	    fenetre.setSize(800, 600);
+		fenetre.setTitle("LangtonAnt - loading...");
+	    fenetre.setSize(1024, 600);
 	    fenetre.setLocationRelativeTo(null);
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    final JPanel pan = new JPanel();
-	    fenetre.setContentPane(pan);
-		pan.setLayout(new GridLayout(LINE,COLUMN));
+	    pan.setLayout(new GridLayout(LINE,COLUMN));
 		pan.setBackground(new Color(RANDOMCOLOR).brighter());
-
+		
+		fenetre.setContentPane(pan);
 		fenetre.setVisible(true);
+	    
 	    ///////////////////////////////
 	    // add CellLabels
 		cells = new LangtonCellsManagerImpl(LINE, COLUMN, ANTCHAR, ANTY, ANTX, startAntOrientation ,rule);
@@ -55,10 +56,13 @@ public class IS_LangtonAnt {
 				pan.add(new CtrlCellMultiStatesLabel((CellMultiStatesWithEvents) cells.getCell(l,c), RANDOMCOLOR).getDesign());
 				fenetre.setTitle("LangtonAnt - loading... " + (++loadingCell*100)/totalLoadingCell + "%");
 			}
-			fenetre.revalidate();
+			if(l==LINE/2)
+				fenetre.revalidate();
 		}
+		fenetre.revalidate();
 		fenetre.setTitle("LangtonAnt - iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
-
+		
+		
 		///////////////////////////////
 	    // compute
 		//init antCellAsDifferent
