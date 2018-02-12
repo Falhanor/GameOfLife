@@ -40,7 +40,7 @@ public class IS_LangtonAnt {
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    final JPanel pan = new JPanel();
-	    pan.setLayout(new GridLayout(LINE,COLUMN));
+	    pan.setLayout(new GridLayout(0,COLUMN));
 		pan.setBackground(new Color(RANDOMCOLOR).brighter());
 		
 		fenetre.setContentPane(pan);
@@ -56,8 +56,7 @@ public class IS_LangtonAnt {
 				pan.add(new CtrlCellMultiStatesLabel((CellMultiStatesWithEvents) cells.getCell(l,c), RANDOMCOLOR).getDesign());
 				fenetre.setTitle("LangtonAnt - loading... " + (++loadingCell*100)/totalLoadingCell + "%");
 			}
-			if(l==LINE/2)
-				fenetre.revalidate();
+			fenetre.revalidate();
 		}
 		fenetre.revalidate();
 		fenetre.setTitle("LangtonAnt - iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);

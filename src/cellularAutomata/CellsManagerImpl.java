@@ -20,7 +20,7 @@ public class CellsManagerImpl implements CellsManager {
 	private void initCells(){
 		for(int l=0; l<line; l++)
 			for(int c=0; c<column;c++)
-				cells[l][c]=new CellImpl(false,this.cellAliveSymbol);
+				cells[l][c]=new CellWithEventsImpl(false,this.cellAliveSymbol);
 	}
 	
 	public Cell getCell(int l,int c) {

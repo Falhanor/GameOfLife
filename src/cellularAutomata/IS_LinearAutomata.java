@@ -1,17 +1,26 @@
 package cellularAutomata;
 
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 public class IS_LinearAutomata {
 	
-	private static final short LINE = 50;
-	private static final short COLUMN = 100;
-	private static final short START_ALIVE = 50;
+	private static final short LINE = 200;
+	private static final short COLUMN = 400;
+	private static final short START_ALIVE = 200;
 	private static final char CELLALIVESYMBOL = '0';
+	private static final int RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
 	
 	protected static RulesManager rulesGenerator;
 	protected static CellsManager cells;
 	protected static Rule rule;
+	
 	
 	public IS_LinearAutomata() {}
 	
@@ -45,12 +54,46 @@ public class IS_LinearAutomata {
 	
 	
 	private static void play(){
-		System.out.println("============================================ Rule N°" + String.format("%03d", rule.ruleNumber()) + " ============================================");
 		cells = new CellsManagerImpl(LINE, COLUMN, CELLALIVESYMBOL);
 		cells.getCell(0,START_ALIVE).resurrect();
 		//System.out.println(cells.toString());
 		
 		cells.computeLine(rule);
+		
+		//////////////////////////////
+		/// JFrame design
+		JFrame fenetre = new JFrame();
+		fenetre.setTitle("Linear automata - loading...");
+		fenetre.setSize(1024, 600);
+		fenetre.setLocationRelativeTo(null);
+		fenetre.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		JPanel pan = new JPanel();
+		pan.setLayout(new GridLayout(0,COLUMN));
+		pan.setBackground(Color.black);
+		
+		fenetre.setContentPane(pan);
+		fenetre.getFocusOwner();
+		fenetre.setVisible(true);
+		fenetre.setAlwaysOnTop(true);
+		fenetre.setAlwaysOnTop(false);
+		fenetre.validate();
+		//////////////////////////////
+		///add cells
+		int totalLoadingCell = LINE * COLUMN;
+		int loadingCell = 0;
+		for(int l=0; l<LINE; l++){
+			for(int c=0; c<COLUMN; c++){
+				fenetre.getContentPane().add(new CtrlCellLabel((CellWithEvents) cells.getCell(l,c), RANDOMCOLOR).getDesign());
+			}
+			loadingCell+=COLUMN;
+			fenetre.setTitle("Linear automata - [" + (loadingCell*100)/totalLoadingCell + "% loading...] - " + l + " iterations with rule \"" + rule.ruleNumber() + "\", color seed = " + RANDOMCOLOR);
+			fenetre.revalidate();
+		}
+		fenetre.revalidate();
+		fenetre.setTitle("Linear automata - " + LINE + " iterations with rule \"" + rule.ruleNumber() + "\", color seed = " + RANDOMCOLOR);
+		///////
+		System.out.println("============================================ Rule N°" + String.format("%03d", rule.ruleNumber()) + " ============================================");
 		System.out.println(cells.toString());
 		System.out.println("====================================================================================================");
 	}
@@ -109,7 +152,7 @@ public class IS_LinearAutomata {
 		System.out.println("              |===================================================|");
 		System.out.println("              |                                                   |");
 		System.out.println("              | Some remarkable rules :                           |");
-		System.out.println("              |     30 -> chaos        126 -> Sierpinksi          |");
+		System.out.println("              |     30 -> chaos      18/90 -> Sierpinksi          |");
 		System.out.println("              |     57 -> Pyramid      129 -> Sierpinksi negative |");
 		System.out.println("              |    110 -> emergence    225 -> Nested pattern      |");
 		System.out.println("              |                                                   |");
