@@ -80,14 +80,11 @@ public class IS_LinearAutomata {
 		fenetre.validate();
 		//////////////////////////////
 		///add cells
-		int totalLoadingCell = LINE * COLUMN;
-		int loadingCell = 0;
-		for(int l=0; l<LINE; l++){
+		for(int loadingLine=0; loadingLine<LINE; loadingLine++){
 			for(int c=0; c<COLUMN; c++){
-				fenetre.getContentPane().add(new CtrlCellLabel((CellWithEvents) cells.getCell(l,c), RANDOMCOLOR).getDesign());
+				fenetre.getContentPane().add(new CtrlCellDraw((CellWithEvents) cells.getCell(loadingLine,c), RANDOMCOLOR).getDesign());
 			}
-			loadingCell+=COLUMN;
-			fenetre.setTitle("Linear automata - [" + (loadingCell*100)/totalLoadingCell + "% loading...] - " + l + " iterations with rule \"" + rule.ruleNumber() + "\", color seed = " + RANDOMCOLOR);
+			fenetre.setTitle("Linear automata - [" + (loadingLine*100)/LINE + "% loading...] - " + loadingLine + " iterations with rule \"" + rule.ruleNumber() + "\", color seed = " + RANDOMCOLOR);
 			fenetre.revalidate();
 		}
 		fenetre.revalidate();

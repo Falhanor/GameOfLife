@@ -5,27 +5,26 @@ import java.awt.Color;
 import cellularAutomata.CellWithEvents.CellEventListener;
 
 
-public class CtrlCellLabel implements CellEventListener {
+public class CtrlCellDraw implements CellEventListener {
 	
 	private CellWithEvents cell;
-	private CtrlCellLabelDesign ctrlCellLabelDesign;
+	private CtrlCellDrawDesign ctrlCellDrawDesign;
 	private int colorSeed = 0;
 	
-	public CtrlCellLabel(CellWithEvents cell, int colorSeed) {
+	public CtrlCellDraw(CellWithEvents cell, int colorSeed) {
 		this.cell =  cell;
 		this.colorSeed = colorSeed;
 		this.cell.addCellListener(this);
-		ctrlCellLabelDesign = new CtrlCellLabelDesign();
+		ctrlCellDrawDesign = new CtrlCellDrawDesign();
 			
 		initialize();	
 	}
 	
-	public CtrlCellLabelDesign getDesign(){
-		return ctrlCellLabelDesign;
+	public CtrlCellDrawDesign getDesign(){
+		return ctrlCellDrawDesign;
 	}
 	
-	private void initialize() {		
-		ctrlCellLabelDesign.setOpaque(true);
+	private void initialize() {	
 		setColor();
 	}
 
@@ -34,9 +33,9 @@ public class CtrlCellLabel implements CellEventListener {
 	//
 	private void setColor(){
 		if(cell.isAlive()){
-			this.ctrlCellLabelDesign.setBackground(new Color(colorSeed));
+			this.ctrlCellDrawDesign.setBackground(new Color(colorSeed));
 		}else{
-			this.ctrlCellLabelDesign.setBackground(Color.black);
+			this.ctrlCellDrawDesign.setBackground(Color.black);
 		}
 	}
 	

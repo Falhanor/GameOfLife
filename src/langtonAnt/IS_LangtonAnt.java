@@ -49,14 +49,14 @@ public class IS_LangtonAnt {
 	    ///////////////////////////////
 	    // add CellLabels
 		cells = new LangtonCellsManagerImpl(LINE, COLUMN, ANTCHAR, ANTY, ANTX, startAntOrientation ,rule);
-		int totalLoadingCell = LINE * COLUMN;
-		int loadingCell = 0;
-		for(int l=0; l<LINE; l++){
+		for(int loadingLine=0; loadingLine<LINE; loadingLine++){
 			for(int c=0; c<COLUMN; c++){
-				pan.add(new CtrlCellMultiStatesLabel((CellMultiStatesWithEvents) cells.getCell(l,c), RANDOMCOLOR).getDesign());
-				fenetre.setTitle("LangtonAnt - loading... " + (++loadingCell*100)/totalLoadingCell + "%");
+				pan.add(new CtrlCellMultiStatesDraw((CellMultiStatesWithEvents) cells.getCell(loadingLine,c), RANDOMCOLOR).getDesign());
 			}
-			fenetre.revalidate();
+			if (loadingLine%10 == 0){
+				fenetre.setTitle("LangtonAnt - loading... " + (loadingLine*100)/LINE + "%");
+				fenetre.revalidate();
+			}
 		}
 		fenetre.revalidate();
 		fenetre.setTitle("LangtonAnt - iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
