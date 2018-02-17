@@ -24,14 +24,16 @@ public class RuleLinearImpl implements Rule {
 	}
 	
 	public String toString(){
-		return Short.toString(this.number) + " : " + this.ruleBinary() + " > " + resultString() + "\n";
+		return String.format("%1$3s", Short.toString(this.number)) + " : " + this.ruleBinary() + " > " + resultString() + "\n";
 	}
 	
 	private String resultString(){
 		StringBuffer str = new StringBuffer();
-		for (byte cas=0; cas<8;cas++)
-			str.append(result[cas] + ".");
-		
+		for (byte cas=0; cas<8;cas++){
+			str.append(String.format("%1$5s",result[cas]));
+			if(cas<7)
+				str.append(" | ");
+		}
 		return str.toString();
 	}
 
@@ -54,8 +56,7 @@ public class RuleLinearImpl implements Rule {
 		if(stateCellPrev && stateCellSame && stateCellNext )
 			return result[0];
 		
-		throw new Exception();
-		
+		throw new Exception();	
 	}
 
 }

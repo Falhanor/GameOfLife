@@ -26,21 +26,27 @@ public class CellsManagerImpl implements CellsManager {
 	public Cell getCell(int l,int c) {
 		return cells[l][c];
 	}
-
-	public void computeLine(Rule rule){
-		for(int l=1; l<line; l++)
-			for(int c=0; c<column;c++){
-				Cell originePrevious = cells[l-1][(c-1 + column) % column];
-				Cell origineSame = cells[l-1][c];
-				Cell origineNext = cells[l-1][(c+1 + column) % column];
-				try {
-					cells[l][c].setIsAlive(rule.apply(originePrevious.isAlive(), origineSame.isAlive(), origineNext.isAlive()));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	
+	@Override
+	public void computeLine(Rule rule, int line){
+		for(int c=0; c<column;c++){
+			Cell originePrevious = cells[line-1][(c-1 + column) % column];
+			Cell origineSame = cells[line-1][c];
+			Cell origineNext = cells[line-1][(c+1 + column) % column];
+			try {
+				cells[line][c].setIsAlive(rule.apply(originePrevious.isAlive(), origineSame.isAlive(), origineNext.isAlive()));
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+		}
 	}
-
+	
+	@Override
+	public void computeAllLines(Rule rule) {
+		for(int l=1; l<line; l++)
+			computeLine(rule, l);
+	}
+	
 	public String toString(){
 		StringBuffer stb =new StringBuffer();
 		for(int l=0; l<line; l++){

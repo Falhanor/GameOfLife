@@ -1,12 +1,11 @@
 package langtonAnt;
 
+import langtonAnt.LangtonAnt.enumOrientation;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import langtonAnt.LangtonAnt.enumOrientation;
-
 import java.awt.GridLayout;
-import java.util.Random;
 import java.awt.Color;
 
 
@@ -33,18 +32,18 @@ public class IS_LangtonAnt {
 		
 		//////////////////////////////
 		/// JFrame design
-		final JFrame fenetre = new JFrame();
-		fenetre.setTitle("LangtonAnt - loading...");
-	    fenetre.setSize(1024, 600);
-	    fenetre.setLocationRelativeTo(null);
-	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		final JFrame frame = new JFrame();
+		frame.setTitle("LangtonAnt - loading...");
+	    frame.setSize(1024, 600);
+	    frame.setLocationRelativeTo(null);
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    final JPanel pan = new JPanel();
 	    pan.setLayout(new GridLayout(0,COLUMN));
 		pan.setBackground(new Color(RANDOMCOLOR).brighter());
 		
-		fenetre.setContentPane(pan);
-		fenetre.setVisible(true);
+		frame.setContentPane(pan);
+		frame.setVisible(true);
 	    
 	    ///////////////////////////////
 	    // add CellLabels
@@ -54,12 +53,12 @@ public class IS_LangtonAnt {
 				pan.add(new CtrlCellMultiStatesDraw((CellMultiStatesWithEvents) cells.getCell(loadingLine,c), RANDOMCOLOR).getDesign());
 			}
 			if (loadingLine%10 == 0){
-				fenetre.setTitle("LangtonAnt - loading... " + (loadingLine*100)/LINE + "%");
-				fenetre.revalidate();
+				frame.setTitle("LangtonAnt - loading... " + (loadingLine*100)/LINE + "%");
+				frame.revalidate();
 			}
 		}
-		fenetre.revalidate();
-		fenetre.setTitle("LangtonAnt - iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
+		frame.revalidate();
+		frame.setTitle("LangtonAnt - iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
 		
 		
 		///////////////////////////////
@@ -86,7 +85,7 @@ public class IS_LangtonAnt {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			fenetre.setTitle("LangtonAnt - " + iterationCount + " iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
+			frame.setTitle("LangtonAnt - " + iterationCount + " iterations with rule \"" + rule + "\", orientation =" + startAntOrientation + ", color seed = " + RANDOMCOLOR);
 			if(verboseMode){
 				displayData(iterationCount);
 			}
@@ -138,28 +137,28 @@ public class IS_LangtonAnt {
 		String regexArgIteration = "^\\d+$";
 		if (args.length>0){
 			for(int i=0; i<args.length; ++i)
-			if (args[i].matches(regexArgRule)){
-				rule = args[i];
-				argsFound = true;
-			}else if (args[i].matches(regexArgIteration)){
-				iteration = Integer.parseInt(args[i]);
-				argsFound = true;
-			}else if (args[i].compareToIgnoreCase("-v")==0){
-				verboseMode = true;
-				argsFound = true;
-			}else if (args[i].compareToIgnoreCase(String.valueOf('N'))==0){
-				startAntOrientation = enumOrientation.NORTH;
-				argsFound = true;
-			}else if (args[i].compareToIgnoreCase(String.valueOf('S'))==0){
-				startAntOrientation = enumOrientation.SOUTH;
-				argsFound = true;
-			}else if (args[i].compareToIgnoreCase(String.valueOf('E'))==0){
-				startAntOrientation = enumOrientation.EAST;
-				argsFound = true;
-			}else if (args[i].compareToIgnoreCase(String.valueOf('W'))==0){
-				startAntOrientation = enumOrientation.WEST;
-				argsFound = true;
-			}
+				if (args[i].matches(regexArgRule)){
+					rule = args[i];
+					argsFound = true;
+				}else if (args[i].matches(regexArgIteration)){
+					iteration = Integer.parseInt(args[i]);
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase("-v")==0){
+					verboseMode = true;
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase(String.valueOf('N'))==0){
+					startAntOrientation = enumOrientation.NORTH;
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase(String.valueOf('S'))==0){
+					startAntOrientation = enumOrientation.SOUTH;
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase(String.valueOf('E'))==0){
+					startAntOrientation = enumOrientation.EAST;
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase(String.valueOf('W'))==0){
+					startAntOrientation = enumOrientation.WEST;
+					argsFound = true;
+				}
 		}
 		return argsFound;
 	}

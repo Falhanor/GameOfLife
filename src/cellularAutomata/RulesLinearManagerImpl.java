@@ -29,6 +29,11 @@ public class RulesLinearManagerImpl implements RulesManager {
 	
 	public String toString(){
 		StringBuffer stb =new StringBuffer();
+		stb.append("==============================================================================\n"); 
+		stb.append("=======================|         List Of Rules         |======================\n"); 
+		stb.append("==============================================================================\n"); 
+		stb.append(" N° :  binary  >  111  |  110  |  101  |  100  |  011  |  010  |  001  |  000 \n"); 
+		stb.append("==============================================================================\n"); 
 		for (Rule r : this.lstRules){
 			stb.append(r.toString());
 		}
