@@ -1,0 +1,1 @@
+start java -jar ./build/jar/cellularAutomata.jar

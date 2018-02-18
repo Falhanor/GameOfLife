@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GameOfLife" default="all" basedir=".">
+	<property name="optimized" value="on"/>
+	<property name="debug" value="off"/>
+	
+	<property name="srcCellularAutomataPath" value="src/cellularAutomata/"/>
+	<property name="srcConwayGameOfLifePath" value="src/conwayGameOfLife/"/>
+	<property name="srcLangtonAntPath" value="src/langtonAnt/"/>
+	<property name="binPath" value="bin/"/>
+	<property name="buildPath" value="buil/"/>
+	<property name="jarPath" value= "${buildPath}jar/"/>
+
+	
+	<!-- ========================================================================================================================== 
+	      target: all              
+	     ========================================================================================================================== -->
+	<target name="all" depends="clean, jar_cellularAutomata, jar_conwayGameOfLife, jar_langtonAnt" description="Compile all GameOfLife project">
+		<echo message="Compile all project"/>
+	</target>
+	<!-- ========================================================================================================================== 
+          target: compile_linearAutomata              
+         ================================= -->
+    <target name="compile_cellularAutomata" description="Compile CellularAutomata!">
+		<echo message="Compile CellularAutomata!"/>
+    	<javac srcdir="${srcCellularAutomataPath}"
+         	destdir="${binPath}"
+         	classpath="jarfile"
+       		debug="${debug}"
+    		optimize="${optimized}"
+		/>
+	</target>
+	<!-- ================================= 
+	      target: jar_cellularAutomata              
+	     ================================= -->
+	<target name="jar_cellularAutomata" depends="compile_cellularAutomata">
+	        <mkdir dir="${jarPath}"/>
+	        <jar destfile="${jarPath}cellularAutomata.jar" includes="cellularAutomata/**/*.class" basedir="${binPath}">
+	            <manifest>
+	                <attribute name="Main-Class" value="cellularAutomata.IS_LinearAutomata"/>
+	            </manifest>
+	        </jar>
+	</target>
+	<!-- ================================= 
+          target: execute_cellularAutomata              
+         ================================= -->
+    <target name="execute_cellularAutomata" depends="jar_cellularAutomata" description="Execute CellularAutomata">
+	   <exec executable="runCellularAutomata.bat">
+	      <arg value=""/>
+	   </exec>
+	</target>
+	<!-- ========================================================================================================================= 
+	      target: compile_linearAutomata              
+	     ================================= -->
+	<target name="compile_conwayGameOfLife" description="Compile ConwayGameOfLife">
+	<echo message="Compile ConwayGameOfLife!"/>
+		<javac srcdir="${srcCellularAutomataPath}" includes="*Cell*.class"
+			destdir="${binPath}"
+		    classpath="jarfile"
+		   	debug="${debug}"
+		   	optimize="${optimized}"
+		/>
+		<javac srcdir="${srcConwayGameOfLifePath}"
+			destdir="${binPath}"
+	        classpath="jarfile"
+	       	debug="${debug}"
+	    	optimize="${optimized}"
+		/>
+	</target>
+	<!-- ================================= 
+	      target: jar_conwayGameOfLife              
+	     ================================= -->
+	<target name="jar_conwayGameOfLife" depends="compile_conwayGameOfLife" description="Compile Conway's Game Of Life!">
+		<mkdir dir="${jarPath}"/>
+        <jar destfile="${jarPath}conwayGameOfLife.jar" includes="cellularAutomata/**/*Cell*.class,conwayGameOfLife/**/*.class" basedir="bin">
+            <manifest>
+            	<attribute name="Main-Class" value="conwayGameOfLife.IS_ConwayGameOfLife"/>
+        	</manifest>
+        </jar>
+	</target>
+	<!-- ================================= 
+	      target: execute_cellularAutomata              
+	     ================================= -->
+	<target name="execute_conwayGameOfLife" depends="jar_conwayGameOfLife" description="Execute CellularAutomata">
+		<exec executable="runConwayGameOfLife.bat">
+			<arg value=""/>
+		</exec>
+	</target>
+	<!-- =========================================================================================================================
+	      target: compile_langtonAnt              
+		 ================================= -->
+	<target name="compile_langtonAnt" description="Compile Lanton's Ant!">
+		<echo message="Compile Lanton's Ant!"/>
+		<javac srcdir="${srcLangtonAntPath}"
+		         	destdir="${binPath}"
+		         	classpath="jarfile"
+		       		debug="${debug}"
+		    		optimize="${optimized}"
+				/>
+	</target>
+	<!-- ================================= 
+		  target: jar_langtonAnt              
+		 ================================= -->
+	<target name="jar_langtonAnt" depends="compile_langtonAnt">
+		<mkdir dir="${jarPath}"/>
+		<jar destfile="${jarPath}langtonAnt.jar" includes="langtonAnt/**/*.class" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="langtonAnt.IS_LangtonAnt"/>
+			</manifest>
+		</jar>
+	</target>
+	<!-- ================================= 
+	      target: execute_langtonAnt              
+	     ================================= -->
+	<target name="execute_langtonAnt" depends="jar_langtonAnt" description="Execute Langton's Ant">
+		<exec executable="runLangtonAnt.bat">
+			<arg value=""/>
+		</exec>
+	</target>
+	<!-- ========================================================================================================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" description="clean all compilation results.">
+		<delete>
+			<fileset dir="${binPath}">
+				<include name="**/*.class"/>
+				<exclude name="**/*.java"/>
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="${buildPath}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</delete>
+    </target>
+
+</project>
