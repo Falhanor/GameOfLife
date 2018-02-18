@@ -11,5 +11,6 @@ public class CtrlCellDrawDesign extends JPanel{
 
 	public CtrlCellDrawDesign() {
 		this.setOpaque(true);
+		this.setVisible(true);
 	}
 }

@@ -88,7 +88,7 @@ public class IS_LinearAutomata {
 			///add cells
 			for(int loadingLine=0; loadingLine<LINE; loadingLine++){
 				for(int c=0; c<COLUMN; c++){
-					frame.getContentPane().add(new CtrlCellDraw(cells.getCell(loadingLine,c), RANDOMCOLOR).getDesign());
+					pan.add(new CtrlCellDraw(cells.getCell(loadingLine,c), RANDOMCOLOR).getDesign());
 				}
 				frame.setTitle("Linear automata - [" + (loadingLine*100)/LINE + "% loading...] - " + loadingLine + " iterations with rule \"" + rule.ruleNumber() + "\", color seed = " + RANDOMCOLOR);
 				selectFrameSize(frame,loadingLine);

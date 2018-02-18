@@ -47,6 +47,7 @@ public class CellsManagerImpl implements CellsManager {
 			computeLine(rule, l);
 	}
 	
+	@Override
 	public String toString(){
 		StringBuffer stb =new StringBuffer();
 		for(int l=0; l<line; l++){
@@ -57,5 +58,12 @@ public class CellsManagerImpl implements CellsManager {
 		return stb.toString();
 	}
 
-	
+	@Override
+	public CellsManager clone(){
+		CellsManager clone = new CellsManagerImpl(this.line,this.column,this.cellAliveSymbol);
+		for(int l=0; l<line; l++)
+			for(int c=0; c<column;c++)
+				clone.getCell(l,c).setIsAlive(this.cells[l][c].isAlive());
+		return clone;
+	}
 }

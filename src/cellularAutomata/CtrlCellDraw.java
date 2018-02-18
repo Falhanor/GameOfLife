@@ -7,7 +7,7 @@ public class CtrlCellDraw {
 	
 	private Cell cell;
 	private CtrlCellDrawDesign ctrlCellDrawDesign;
-	private int colorSeed = 0;
+	protected int colorSeed = 0;
 	
 	public CtrlCellDraw(Cell cell, int colorSeed) {
 		this.cell =  cell;
@@ -28,7 +28,7 @@ public class CtrlCellDraw {
 	////////////////////////////////////////////////////////
 	// Function linked with design
 	//
-	private void setColor(){
+	protected void setColor(){
 		if(cell.isAlive()){
 			this.ctrlCellDrawDesign.setBackground(new Color(colorSeed));
 		}else{
