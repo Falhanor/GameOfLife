@@ -12,10 +12,11 @@
 		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
+			<triggers>auto,full,incremental,</triggers>
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/GameOfLife_Builder.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/ant_Builder.launch</value>
 				</dictionary>
 				<dictionary>
 					<key>incclean</key>
