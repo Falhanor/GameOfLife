@@ -1,11 +1,15 @@
 package cellularAutomata;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -23,6 +27,7 @@ public class IS_LinearAutomata {
 	protected static CellsManager cells;
 	protected static Rule rule;
 	
+	private static boolean manualMode = false;
 	private static boolean verboseMode = false;
 	private static boolean graphicMode = true;
 	private static boolean listRules = false;
@@ -47,7 +52,11 @@ public class IS_LinearAutomata {
 		}else{
 			//=== ManualPlay ====================
 			do{
-				rule = selectRule(sc);
+				RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
+				if(!manualMode)
+					rule = rulesGenerator.getRule((short) (RANDOMCOLOR%255));
+				else
+					rule = selectRule(sc);
 				play();
 				printUsage();
 			}while (true);
@@ -65,7 +74,6 @@ public class IS_LinearAutomata {
 
 	private static void show(){
 		if(graphicMode){
-			RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
 			//////////////////////////////
 			/// JFrame design
 			JFrame frame = new JFrame();
@@ -73,12 +81,27 @@ public class IS_LinearAutomata {
 			selectFrameSize(frame,0);
 			frame.setLocationRelativeTo(null);
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			JPanel mainPanel = new JPanel();
+			frame.setContentPane(mainPanel);
 			
+			//add kill button
+			JButton btnKill = new JButton("Kill process");
+			btnKill.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent arg0) {
+					if(verboseMode)
+						System.out.println("****** End ******");
+					System.exit(0);
+				}
+			});	
+			mainPanel.setLayout(new BorderLayout());
+			mainPanel.add(btnKill, BorderLayout.NORTH);
+			btnKill.setVisible(true);
+			
+			//add grid
 			JPanel pan = new JPanel();
 			pan.setLayout(new GridLayout(0,COLUMN));
 			pan.setBackground(Color.black);
-			
-			frame.setContentPane(pan);
+			mainPanel.add(pan,BorderLayout.CENTER);
 			frame.getFocusOwner();
 			frame.setVisible(true);
 			frame.setAlwaysOnTop(true);
@@ -107,7 +130,7 @@ public class IS_LinearAutomata {
 	
 	private static void selectFrameSize(JFrame frame, int line){
 		int idealWidth = COLUMN + DISPLAY_MARGIN;
-		int idealHeight = line + DISPLAY_MARGIN;
+		int idealHeight = line + DISPLAY_MARGIN + 50;
 		int width = frame.getWidth();
 		int height = frame.getHeight();
 		
@@ -178,13 +201,14 @@ public class IS_LinearAutomata {
 		System.out.println("              |=======================| Linear automata |========================|");
 		System.out.println("              |==================================================================|");
 		System.out.println("              |                                                                  |");
-		System.out.println("              | usage   : program iteration verbose console                      |");
+		System.out.println("              | usage   : program iteration random verbose console               |");
 		System.out.println("              | default : cellularAutomata.IS_LinearAutomata " + LINE + "                 |");
 		System.out.println("              |                                                                  |");
 		System.out.println("              |==================================================================|");
 		System.out.println("              | Parameters details :                                             |");
 		System.out.println("              |  >>> iteration : integer (0 to " + String.format("%1$5s", getMaxHeight()) + ")                            |");
 		System.out.println("              |                  => grid [iteration x iteration*2]               |");
+		System.out.println("              |  >>> manual mode : -m                                            |");
 		System.out.println("              |  >>> verbose mode : -v                                           |");
 		System.out.println("              |  >>> console mode (no window) : -c                               |");
 		System.out.println("              |                                                                  |");
@@ -224,6 +248,9 @@ public class IS_LinearAutomata {
 					LINE = (argLine > maxHeight)? ++maxHeight : ++argLine;
 					COLUMN = LINE*2 + 1;
 					START_ALIVE = (COLUMN)/2;
+					argsFound = true;
+				}else if (args[i].compareToIgnoreCase("-m")==0){
+					manualMode = true;
 					argsFound = true;
 				}else if (args[i].compareToIgnoreCase("-v")==0){
 					verboseMode = true;
