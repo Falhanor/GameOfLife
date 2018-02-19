@@ -18,10 +18,10 @@ public class IS_ConwayGameOfLife {
 	private static short COLUMN = 200;//80;
 		
 	private static final char CELLALIVESYMBOL = '0';
-	private static final int DISPLAY_DELAY = 300; 	
+	private static final int DISPLAY_DELAY = 50; 	
 	private static int RANDOMCOLOR = new Random().nextInt(0xFFFFFF);
 	
-	private static int iteration = 0; 	
+	private static int iteration = -1; 	
 	private static boolean verboseMode = false;
 	private static boolean graphicMode = true;
 	private static boolean multicolour = false;
@@ -64,11 +64,50 @@ public class IS_ConwayGameOfLife {
 				frame.validate();
 			}
 		}
+		
+		////////////////diags
+		int gap = new Random().nextInt(0xFFFFFF)%COLUMN;
+		for (int diag=0; diag<COLUMN; diag+=gap)
+			for(int l=0, c=diag; l<LINE && c<COLUMN; l++, c++)
+				cells.getCell(l,c).resurrect();
+		
+		for (int diag=0; diag<COLUMN; diag+=gap)
+			for(int l=LINE-1, c=diag; l>=0 && c<COLUMN; l--, c++)
+				cells.getCell(l,c).resurrect();
+		
+		for (int diag=COLUMN-1; diag>=0; diag-=gap)
+			for(int l=0, c=diag; l<LINE && c>=0; l++, c--)
+				cells.getCell(l,c).resurrect();
+		
+		for (int diag=COLUMN-1; diag>=0; diag-=gap)
+			for(int l=LINE-1, c=diag; l>=0 && c>=0; l--, c--)
+				cells.getCell(l,c).resurrect();
+		/*
+		//////////////// cross
+		for(int l=0; l<LINE; l++)
+			cells.getCell(l,COLUMN/2).resurrect();
+		for(int c=0; c<COLUMN;c++)
+			cells.getCell(LINE/2,c).resurrect();
+		*/		
+		/*
+		//////////////// border top & right
 		for(int l=0; l<LINE; l++)
 			cells.getCell(l,COLUMN-1).resurrect();
 		for(int c=0; c<COLUMN;c++)
 			cells.getCell(0,c).resurrect();
-		
+		*/
+		/*
+		//////////////// all border
+		for(int l=0; l<LINE; l++)
+			cells.getCell(l,COLUMN-1).resurrect();
+		for(int c=0; c<COLUMN;c++)
+			cells.getCell(0,c).resurrect();
+		for(int l=0; l<LINE; l++)
+			cells.getCell(l,0).resurrect();
+		for(int c=0; c<COLUMN;c++)
+			cells.getCell(LINE-1,c).resurrect();
+		///////////////////////////////////////
+		*/
 		int iterationCount = 0;
 		if(graphicMode){
 			frame.setTitle("Conway'sGameOfLife - " + iterationCount + " iterations");
@@ -79,7 +118,7 @@ public class IS_ConwayGameOfLife {
 			System.out.println("Iteration n°" + iterationCount + " =====================================================================");
 			System.out.println(cells.toString());
 		}
-		while((iteration==0 && computeNextStep()) || (iterationCount < iteration && computeNextStep())){
+		while((iteration==-1 && computeNextStep()) || (iterationCount < iteration && computeNextStep())){
 			iterationCount++;
 			if(graphicMode)
 				frame.setTitle("Conway'sGameOfLife - " + iterationCount + " iterations");
@@ -145,7 +184,7 @@ public class IS_ConwayGameOfLife {
 		System.out.println("              |                                                         |");
 		System.out.println("              |=========================================================|");
 		System.out.println("              | Parameters details :                                    |");
-		System.out.println("              |  >>> iteration : integer (0 = infinite)                 |");
+		System.out.println("              |  >>> iteration : integer (default = infinite)           |");
 		System.out.println("              |  >>> verbose mode : -v                                  |");
 		System.out.println("              |  >>> console mode (no window) : -c                      |");
 		System.out.println("              |  >>> multicolour : -m                                   |");

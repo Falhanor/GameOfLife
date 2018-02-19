@@ -14,7 +14,7 @@
 	<!-- ========================================================================================================================== 
 	      target: all              
 	     ========================================================================================================================== -->
-	<target name="all" depends="clean, execute_cellularAutomata, execute_conwayGameOfLife, execute_langtonAnt" description="Compile all GameOfLife project">
+	<target name="all" depends="clean, jar_cellularAutomata, jar_conwayGameOfLife, jar_langtonAnt" description="Compile all GameOfLife project">
 		<echo message="Compile all project"/>
 	</target>
 	<!-- ========================================================================================================================== 
